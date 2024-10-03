@@ -1,0 +1,6 @@
+{% extends 'recipes/base.html' %}
+{% block title %}Logout{% endblock %}
+{% block content %}
+<h1>You are now logged out</h1>
+<p><a href="{% url 'recipes:index' %}" class="btn btn-primary">Back to homepage</a></p>
+{% endblock %}

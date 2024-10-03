@@ -1,0 +1,24 @@
+{% extends 'recipes/base.html' %} 
+{% load static %}
+{% block title %}Home{% endblock %} 
+{% block content%}
+<h1 class="my-4">Мои Рецепты</h1>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for recipe in recipes %}
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static "recipes/test.jpg" %}" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">{{ recipe.title }}</h5>
+        <p class="card-text">{{ recipe.description|truncatewords:30 }}</p>
+      </div>
+      <div class="card-footer">
+        <a href="{% url 'recipes:recipe_detail' recipe.pk %}" class="btn btn-primary">Посмотреть рецепт</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+  <p>No recipes available.</p>
+  {% endfor %}
+</div>
+{% endblock %}

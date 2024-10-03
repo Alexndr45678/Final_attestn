@@ -1,0 +1,28 @@
+{% extends 'recipes/base.html' %} 
+{% load static %}
+{% block title %} {{ recipe.title }} {%endblock %} 
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+    <img src="{% static "recipes/test.jpg" %}" class="img-fluid" alt="..." />
+  </div>
+  <div class="col-md-6">
+    <h1>{{ recipe.title }}</h1>
+    <p>{{ recipe.description }}</p>
+    {% comment %} <h3>Ingredients:</h3>
+    <ul>
+      {% for ingredient in recipe.ingredients.all %}
+      <li>{{ ingredient.name }} - {{ ingredient.quantity }}</li>
+      {% empty %}
+      <li>No ingredients available.</li>
+      {% endfor %}
+    </ul> {% endcomment %}
+    <h3>Instructions:</h3>
+    <p>{{ recipe.instructions }}</p>
+    {% if user == recipe.author %}
+    <a href="{% url 'recipes:edit' recipe.pk %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'recipes:delete' recipe.pk %}" class="btn btn-danger">Delete</a>{# добавляем ссылку на форму удаления рецепта #}
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
