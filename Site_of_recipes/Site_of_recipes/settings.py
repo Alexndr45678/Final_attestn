@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-ng*d*8vo^d!=soo9=b@4rh(xrx+t0&rv*=iyiq_epv@--9z%sf"
+# SECRET_KEY = "django-insecure-ng*d*8vo^d!=soo9=b@4rh(xrx+t0&rv*=iyiq_epv@--9z%sf"
 SECRET_KEY = os.getenv("SECRET_KEY")
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -32,7 +32,7 @@ STATIC_ROOT = BASE_DIR / "static"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "djangopythontestproject.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "12test21.pythonanywhere.com"]
 
 
 # Application definition
@@ -83,11 +83,11 @@ WSGI_APPLICATION = "Site_of_recipes.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": "djangopythontest$default",
-        "USER": "djangopythontest",
-        "PASSWORD": os.getenv("SQLITE3_PASSWORD"),
-        "HOST": "djangopythontestproject.mysql.pythonanywhere-services.com",
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": "12test21$default",
+        "USER": "12test21",
+        "PASSWORD": os.getenv("MYSQL_PASSWORD"),
+        "HOST": "12test21.mysql.pythonanywhere-services.com",
         "OPTIONS": {
             "init_command" : "SET NAMES 'utf8mb4'; SET sql_mode='STRICT_TRANS_TABLES'", 
             'charset': 'utf8mb4',
