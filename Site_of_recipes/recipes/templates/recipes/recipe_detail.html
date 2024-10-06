@@ -1,28 +1,24 @@
-{% extends 'recipes/base.html' %} 
+{% extends 'recipes/base.html' %}
 {% load static %}
-{% block title %} {{ recipe.title }} {%endblock %} 
+{% block title %} {{ recipe.title }} {%endblock %}
 {% block content %}
 <div class="row">
+    <h2 class="my-4">{{ user }}</h2>
   <div class="col-md-6">
-    <img src="{% static "recipes/test.jpg" %}" class="img-fluid" alt="..." />
+    <img src="{% static "recipes/test.jpg" %}" class="img-fluid rounded-3" alt="..." />
   </div>
   <div class="col-md-6">
     <h1>{{ recipe.title }}</h1>
     <p>{{ recipe.description }}</p>
-    {% comment %} <h3>Ingredients:</h3>
-    <ul>
-      {% for ingredient in recipe.ingredients.all %}
-      <li>{{ ingredient.name }} - {{ ingredient.quantity }}</li>
-      {% empty %}
-      <li>No ingredients available.</li>
-      {% endfor %}
-    </ul> {% endcomment %}
-    <h3>Instructions:</h3>
-    <p>{{ recipe.instructions }}</p>
-    {% if user == recipe.author %}
-    <a href="{% url 'recipes:edit' recipe.pk %}" class="btn btn-primary">Edit</a>
-    <a href="{% url 'recipes:delete' recipe.pk %}" class="btn btn-danger">Delete</a>{# добавляем ссылку на форму удаления рецепта #}
+    {% if recipe.cooking_steps %}
+    <h3>Инструкция:</h3>
+    <p>{{ recipe.cooking_steps }}</p>
     {% endif %}
+    {% if user == recipe.author %}
+    <a href="{% url 'recipes:edit' recipe.pk %}" class="btn btn-primary">Изменить</a>
+    <a href="{% url 'recipes:delete' recipe.pk %}" class="btn btn-danger">Удалить</a>
+    {% endif %}
+    <p>Автор рецепта: {{ recipe.author }} </p>
   </div>
 </div>
 {% endblock %}

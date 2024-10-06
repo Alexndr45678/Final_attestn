@@ -3,6 +3,7 @@
 {% block title %}Home{% endblock %} 
 {% block content%}
 <h1 class="my-4">Мои Рецепты</h1>
+<h2 class="my-4">{{ user }}</h2>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   {% for recipe in recipes %}
   <div class="col">

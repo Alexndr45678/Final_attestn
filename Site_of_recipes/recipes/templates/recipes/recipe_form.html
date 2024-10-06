@@ -1,8 +1,8 @@
 {% extends 'recipes/base.html' %}
 {% load static %}
-{% block title %}{% if form.instance.pk %}Edit{% else %}Add{% endif %} Recipe{% endblock %}
+{% block title %}{% if form.instance.pk %}Изменить{% else %}Добавить{% endif %} Рецепт{% endblock %}
 {% block content %}
-<h1>{% if form.instance.pk %}Edit{% else %}Add{% endif %} Recipe</h1>
+<h1>{% if form.instance.pk %}Изменить{% else %}Добавить{% endif %} Рецепт</h1>
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="row">
@@ -13,17 +13,7 @@
       <img src="{% static "recipes/test.jpg" %}" class="img-fluid" alt="...">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Update{% else %}Create{% endif %}</button>
+  <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Обновить{% else %}Создать{% endif %}</button>
 </form>
-<a href="{% url 'recipes:index' %}" class="btn btn-secondary">Cancel</a>
+<a href="{% url 'recipes:index' %}" class="btn btn-secondary">Отменить</a>
 {% endblock %}
-
-{% comment %} 
-{% block content %}
-  <h1>{% if form.instance.pk %}Edit{% else %}Create{% endif %} Recipe</h1>
-  <form method="post" enctype="multipart/form-data">  {# указываем метод POST и поле enctype #}
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">{% if form.instance.pk %}Save changes{% else %}Create{% endif %}</button>
-  </form>
-{% endblock %} {% endcomment %}

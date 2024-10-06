@@ -1,11 +1,11 @@
 {% extends 'recipes/base.html' %}
 
 {% block content %}
-  <h1>Delete Recipe: {{ recipe.title }}</h1>
-  <p>Are you sure you want to delete this recipe?</p>
+  <h1>Удалить рецепт: {{ recipe.title }}</h1>
+  <p>Вы точно хотите удалить этот рецепт?</p>
   <form method="post">
     {% csrf_token %}
-    <button type="submit" class="btn btn-danger">Delete</button>
+    <button type="submit" class="btn btn-danger">Удалить</button>
   </form>
-  <a href="{% url 'recipes:index' %}" class="btn btn-secondary">Cancel</a>
+  <a href="{% url 'recipes:index' %}" class="btn btn-secondary">Отмена</a>
 {% endblock %}

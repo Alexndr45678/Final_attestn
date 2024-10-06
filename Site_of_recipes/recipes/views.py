@@ -4,7 +4,6 @@ from django.contrib.auth import logout as auth_logout
 from django.contrib.auth import login as auth_login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.password_validation import password_validators_help_texts
 from .models import Recipe
 from .forms import RecipeForm, CategoryForm
 
@@ -96,7 +95,6 @@ def category_create(request):
             return redirect("recipes:index")
     else:
         form = CategoryForm()
-        return password_validators_help_texts()
     return render(request, "recipes/category_form.html", {"form": form})
 
 

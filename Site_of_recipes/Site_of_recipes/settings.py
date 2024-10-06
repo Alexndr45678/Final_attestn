@@ -10,7 +10,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-from django.utils.translation import gettext_lazy as _
 from pathlib import Path
 import os
 
@@ -89,11 +88,11 @@ DATABASES = {
         "PASSWORD": os.getenv("MYSQL_PASSWORD"),
         "HOST": "12test21.mysql.pythonanywhere-services.com",
         "OPTIONS": {
-            "init_command" : "SET NAMES 'utf8mb4'; SET sql_mode='STRICT_TRANS_TABLES'", 
-            'charset': 'utf8mb4',
-            },
-        }
+            "init_command": "SET NAMES 'utf8mb4'; SET sql_mode='STRICT_TRANS_TABLES'",
+            "charset": "utf8mb4",
+        },
     }
+}
 
 
 # Password validation
@@ -119,10 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
 LANGUAGE_CODE = "ru-ru"
-
-LANGUAGES = [
-    ("ru", _("Russian")),
-]
 
 TIME_ZONE = "UTC"
 
